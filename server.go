@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
+	gindump "github.com/tpkeeper/gin-dump"
 )
 
 func setupLogOutput() {
@@ -20,7 +21,7 @@ func main() {
 	setupLogOutput()
 	server := gin.Default()
 
-	server.Use(middlewares.BasicAuth())
+	server.Use(middlewares.BasicAuth(), gindump.Dump())
 
 	server.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
