@@ -1,0 +1,23 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> main.main.func1 (4 handlers)
+[GIN-debug] GET    /videos                   --> go/tutorial/Controller.(*VideoController).FindAll-fm (4 handlers)
+[GIN-debug] POST   /videos                   --> go/tutorial/Controller.(*VideoController).Save-fm (4 handlers)
+[GIN-debug] DELETE /videos/:id               --> go/tutorial/Controller.(*VideoController).Delete-fm (4 handlers)
+[GIN-debug] GET    /users                    --> go/tutorial/Controller.(*UserController).FindAll-fm (4 handlers)
+[GIN-debug] GET    /users/:id                --> go/tutorial/Controller.(*UserController).FindById-fm (4 handlers)
+[GIN-debug] POST   /users                    --> go/tutorial/Controller.(*UserController).Save-fm (4 handlers)
+[GIN-debug] PUT    /users/:id                --> go/tutorial/Controller.(*UserController).Update-fm (4 handlers)
+[GIN-debug] DELETE /users/:id                --> go/tutorial/Controller.(*UserController).Delete-fm (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://github.com/gin-gonic/gin/blob/master/docs/doc.md#dont-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2025/10/12 - 17:15:32 | 401 |       3.935µs |             ::1 | POST     "/users"
+[GIN] 2025/10/12 - 17:15:45 | 201 |     250.733µs |             ::1 | POST     "/users"
+[GIN] 2025/10/12 - 17:26:26 | 201 |     231.033µs |             ::1 | POST     "/users"
+[GIN] 2025/10/12 - 17:26:53 | 401 |      61.147µs |             ::1 | GET      "/users"
+[GIN] 2025/10/12 - 17:27:03 | 200 |     120.789µs |             ::1 | GET      "/users"

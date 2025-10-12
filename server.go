@@ -3,12 +3,24 @@ package main
 import (
 	controller "go/tutorial/Controller"
 	service "go/tutorial/Service"
+	"go/tutorial/middlewares"
+	"io"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
 
+func setupLogOutput() {
+	f, _ := os.Create("gin.log")
+	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
+
+}
+
 func main() {
+	setupLogOutput()
 	server := gin.Default()
+
+	server.Use(middlewares.BasicAuth())
 
 	server.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{

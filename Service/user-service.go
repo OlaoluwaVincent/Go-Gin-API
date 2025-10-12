@@ -2,6 +2,7 @@ package service
 
 import (
 	"go/tutorial/entity"
+	"reflect"
 )
 
 type UserService struct {
@@ -22,6 +23,7 @@ func (u *UserService) FindById(id int) entity.User {
 }
 
 func (u *UserService) Save(user entity.User) entity.User {
+	user.Id = len(u.users) + 1
 	u.users = append(u.users, user)
 	return user
 }
@@ -39,8 +41,20 @@ func (u *UserService) DeleteById(id int) bool {
 func (u *UserService) UpdateById(id int, user entity.User) entity.User {
 	for i, v := range u.users {
 		if v.Id == id {
-			u.users[i] = user
-			return u.users[i]
+			vValue := reflect.ValueOf(&v).Elem()
+			uValue := reflect.ValueOf(user)
+
+			for j := 0; j < vValue.NumField(); j++ {
+				field := vValue.Field(j)
+				newValue := uValue.Field(j)
+
+				if !reflect.DeepEqual(newValue.Interface(), reflect.Zero(newValue.Type()).Interface()) {
+					field.Set(newValue)
+				}
+			}
+
+			u.users[i] = v
+			return v
 		}
 	}
 	return entity.User{}
