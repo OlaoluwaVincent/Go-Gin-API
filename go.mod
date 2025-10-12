@@ -1,4 +1,4 @@
-module gin/tutorial
+module go/tutorial
 
 go 1.25.1
 
