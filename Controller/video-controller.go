@@ -3,9 +3,11 @@ package controller
 import (
 	service "go/tutorial/Service"
 	"go/tutorial/entity"
+	"go/tutorial/validators"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/go-playground/validator/v10"
 )
 
 type VideoController struct {
@@ -23,6 +25,7 @@ func (vc *VideoController) Save(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
 	savedVideo := vc.Service.Save(video)
 	c.JSON(http.StatusOK, savedVideo)
 }
@@ -36,6 +39,10 @@ func (vc *VideoController) Delete(c *gin.Context) {
 	}
 }
 
+var validate *validator.Validate
+
 func NewVideoController(service *service.VideoService) *VideoController {
+	validate = validator.New()
+	validate.RegisterValidation("is-cool", validators.CoolValidator)
 	return &VideoController{Service: service}
 }
