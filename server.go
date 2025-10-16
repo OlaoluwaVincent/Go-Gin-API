@@ -46,5 +46,7 @@ func main() {
 	server.PUT("/users/:id", userController.Update)
 	server.DELETE("/users/:id", userController.Delete)
 
+	// server.POST("/login", userController)
+
 	server.Run(":8080")
 }

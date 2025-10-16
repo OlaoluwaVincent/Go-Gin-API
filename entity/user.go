@@ -6,3 +6,8 @@ type User struct {
 	Email string `json:"email"`
 	Age   int    `json:"age"`
 }
+
+type LoginData struct {
+	Email    string `json:"email"`
+	Password string `json:"password"`
+}
