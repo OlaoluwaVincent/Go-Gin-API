@@ -3,7 +3,6 @@ package main
 import (
 	controller "go/tutorial/Controller"
 	service "go/tutorial/Service"
-	"go/tutorial/middlewares"
 	"io"
 	"os"
 
@@ -21,7 +20,7 @@ func main() {
 	setupLogOutput()
 	server := gin.Default()
 
-	server.Use(middlewares.BasicAuth(), gindump.Dump())
+	server.Use(gindump.Dump())
 
 	server.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{

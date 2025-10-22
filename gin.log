@@ -4,19 +4,18 @@
  - using env:	export GIN_MODE=release
  - using code:	gin.SetMode(gin.ReleaseMode)
 
-[GIN-debug] GET    /ping                     --> main.main.func1 (5 handlers)
-[GIN-debug] GET    /videos                   --> go/tutorial/Controller.(*VideoController).FindAll-fm (5 handlers)
-[GIN-debug] POST   /videos                   --> go/tutorial/Controller.(*VideoController).Save-fm (5 handlers)
-[GIN-debug] DELETE /videos/:id               --> go/tutorial/Controller.(*VideoController).Delete-fm (5 handlers)
-[GIN-debug] GET    /users                    --> go/tutorial/Controller.(*UserController).FindAll-fm (5 handlers)
-[GIN-debug] GET    /users/:id                --> go/tutorial/Controller.(*UserController).FindById-fm (5 handlers)
-[GIN-debug] POST   /users                    --> go/tutorial/Controller.(*UserController).Save-fm (5 handlers)
-[GIN-debug] PUT    /users/:id                --> go/tutorial/Controller.(*UserController).Update-fm (5 handlers)
-[GIN-debug] DELETE /users/:id                --> go/tutorial/Controller.(*UserController).Delete-fm (5 handlers)
+[GIN-debug] GET    /ping                     --> main.main.func1 (4 handlers)
+[GIN-debug] GET    /videos                   --> go/tutorial/Controller.(*VideoController).FindAll-fm (4 handlers)
+[GIN-debug] POST   /videos                   --> go/tutorial/Controller.(*VideoController).Save-fm (4 handlers)
+[GIN-debug] DELETE /videos/:id               --> go/tutorial/Controller.(*VideoController).Delete-fm (4 handlers)
+[GIN-debug] GET    /users                    --> go/tutorial/Controller.(*UserController).FindAll-fm (4 handlers)
+[GIN-debug] GET    /users/:id                --> go/tutorial/Controller.(*UserController).FindById-fm (4 handlers)
+[GIN-debug] POST   /users                    --> go/tutorial/Controller.(*UserController).Save-fm (4 handlers)
+[GIN-debug] PUT    /users/:id                --> go/tutorial/Controller.(*UserController).Update-fm (4 handlers)
+[GIN-debug] DELETE /users/:id                --> go/tutorial/Controller.(*UserController).Delete-fm (4 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://github.com/gin-gonic/gin/blob/master/docs/doc.md#dont-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-[GIN] 2025/10/16 - 04:25:41 | 401 |       4.859µs |             ::1 | POST     "/videos"
-[GIN] 2025/10/16 - 04:26:20 | 200 |     446.395µs |             ::1 | POST     "/videos"
-[GIN] 2025/10/16 - 04:26:31 | 401 |      21.917µs |             ::1 | GET      "/videos"
-[GIN] 2025/10/16 - 04:26:39 | 200 |      264.75µs |             ::1 | GET      "/videos"
+[GIN] 2025/10/22 - 20:31:36 | 200 |     335.207µs |       127.0.0.1 | GET      "/videos"
+[GIN] 2025/10/22 - 20:32:34 | 200 |     180.501µs |       127.0.0.1 | GET      "/videos"
+[GIN] 2025/10/22 - 20:32:43 | 200 |     324.172µs |       127.0.0.1 | GET      "/ping"
